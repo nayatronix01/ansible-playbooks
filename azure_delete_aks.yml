@@ -4,11 +4,11 @@
   vars_prompt:
 
     - name: resource_group
-      prompt: "Enter resource group:"
+      prompt: "Enter resource group"
       private: no
 
     - name: aks_name
-      prompt: "Enter Azure Kubernetes Cluster name:"
+      prompt: "Enter Azure Kubernetes Cluster name"
       private: no
 
   tasks:
