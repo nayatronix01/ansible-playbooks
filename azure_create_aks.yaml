@@ -4,32 +4,33 @@
   vars_prompt:
 
       - name: resource_group
-        prompt: "Enter resource group:"
+        prompt: "Enter resource group"
         private: no
 
       - name: location
-        prompt: "Enter Azure location:"
+        prompt: "Enter Azure location (case insensitive)"
         private: no
 
       - name: aks_name
-        prompt: "Enter Azure Kubernetes Cluster name:"
+        prompt: "Enter Azure Kubernetes Cluster name"
         private: no
 
-      - name: username:
-        prompt: "Enter a username:"
-
-      - name ssh_key:
-        prompt: "Enter SSH key:"
-
-      - name: client_id:
-        prompt: "Enter App Registrations Client ID:"
+      - name: username
+        prompt: "Enter a username"
         private: no
 
-      - name client_secret:
-        prompt: "Enter App Registrations Client Secret:"
+      - name: ssh_key
+        prompt: "Enter SSH Public key (will not be visible)"
 
-      - name aks_version:
-        prompt: "Enter AKS version:"
+      - name: client_id
+        prompt: "Enter App Registrations Client ID"
+        private: no
+
+      - name: client_secret
+        prompt: "Enter App Registrations Client Secret (will not be visible)"
+
+      - name: aks_version
+        prompt: "Enter AKS version"
         private: no
 
   tasks:
