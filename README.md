@@ -23,7 +23,7 @@ Follow instructions on the right of page to connect to AKE
     
 # AKS delete
 Login into Azure  
-Run Azure Powershell Cli 
+Run Azure Powershell Cli  
 Run ansible-playbook azure_create_aks.yml and fill in parameters  
 
 
