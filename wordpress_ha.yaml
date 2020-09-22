@@ -60,7 +60,7 @@ wordpressUsername: admin
 ## Defaults to a random 10-character alphanumeric string if not set
 ## ref: https://github.com/bitnami/bitnami-docker-wordpress#environment-variables
 ##
-wordpressPassword: Obinnaya01!
+wordpressPassword: admin
 
 ## Admin email
 ## ref: https://github.com/bitnami/bitnami-docker-wordpress#environment-variables
@@ -150,7 +150,7 @@ updateStrategy:
 # smtpUsername:
 # smtpProtocol:
 
-replicaCount: 1
+replicaCount: 2
 
 ## Additional container environment variables
 ## Example: Configure SSL for database
@@ -265,13 +265,13 @@ readinessProbeHeaders: {}
 ## For minikube, set this to NodePort, elsewhere use LoadBalancer or ClusterIP
 ##
 service:
-  type: ClusterIP
+  type: LoadBalancer
   ## HTTP Port
   ##
-  port: 8080
+  port: 80
   ## HTTPS Port
   ##
-  httpsPort: 8443
+  httpsPort: 443
   ## HTTPS Target Port
   ## defaults to https unless overridden to the specified port.
   ## if you want the target port to be "http" or "80" you can specify that here.
@@ -317,7 +317,7 @@ ingress:
 
   ## When the ingress is enabled, a host pointing to this will be created
   ##
-  hostname: wordpress.k3s.vmware.nayatronix.com
+  hostname: wordpress
 
   ## Ingress annotations done as key:value pairs
   ## For a full list of possible ingress annotations, please see
@@ -381,7 +381,7 @@ persistence:
   ## If you want to reuse an existing claim, you can pass the name of the PVC using
   ## the existingClaim variable
   # existingClaim: your-claim
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   size: 10Gi
 
 ##
@@ -393,11 +393,11 @@ mariadb:
   ## Whether to deploy a mariadb server to satisfy the applications database requirements. To use an external database set this to false and configure the ex
 ternalDatabase parameters
   ##
-  enabled: false
+  enabled: true
   ## Disable MariaDB replication
   ##
   replication:
-    enabled: false
+    enabled: true
 
   ## Create a database and a database user
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
@@ -430,7 +430,7 @@ ternalDatabase parameters
       ##
       # storageClass: "-"
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
       size: 8Gi
 
 ##
@@ -441,8 +441,7 @@ ternalDatabase parameters
 externalDatabase:
   ## Database host
   ##
-  #host: mariadb-galera-headless.mariadb-galera.svc.cluster.local
-  host: 192.168.1.251
+  host:
 
   ## non-root Username for Wordpress Database
   ##
@@ -454,7 +453,7 @@ externalDatabase:
 
   ## Database name
   ##
-  database: k3s_linux_cluster_1_bitnami_wordpress
+  database:
 
   ## Database port number
   ##
