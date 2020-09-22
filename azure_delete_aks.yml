@@ -1,0 +1,19 @@
+- name: Delete a managed Azure Container Services (AKS) cluster
+  hosts: localhost
+  connection: local
+  vars_prompt:
+
+    - name: resource_group
+      prompt: "Enter resource group:"
+      private: no
+
+    - name: aks_name
+      prompt: "Enter Azure Kubernetes Cluster name:"
+      private: no
+
+  tasks:
+  - name:
+    azure_rm_aks:
+      name: "{{ aks_name }}"
+      resource_group: "{{ resource_group }}"
+      state: absent
