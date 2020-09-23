@@ -26,7 +26,7 @@ Follow instructions on the right of page to connect to AKE
 ## AKS delete
 Login into Azure  
 Run Azure Powershell Cli  
-Run ansible-playbook azure_create_aks.yml and fill in parameters  
+Run ansible-playbook azure_delete_aks.yml and fill in parameters  
 
 
 NOTE: SSH Public key and App Registrations Client Secret will not be displayed when entered.
