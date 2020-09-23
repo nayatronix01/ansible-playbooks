@@ -8,7 +8,8 @@ Create SSH key
 Note down location you want to use  
 Search for Azure AD in search box at the top of the page   
 Select App Registrations  
-Create App Registration and Secret. Copy Secret  
+Create App Registrations and Secret.
+Copy Client ID and Secret
 Run Azure Powershell Cli  
 Check AKS version - az aks get-versions --location <location. --subscription <mysubscriptionid>  
 Copy azure_create_aks.yml to Powershell cli  
